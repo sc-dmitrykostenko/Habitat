@@ -1,0 +1,7 @@
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform" xmlns:patch="http://www.sitecore.net/xmlconfig/">
+  <sitecore>
+    <sites>
+      <site name="habitat" xdt:Transform="RemoveAttributes(targetHostName)" />
+    </sites>
+  </sitecore>
+</configuration>

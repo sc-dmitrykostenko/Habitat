@@ -1,0 +1,7 @@
+<IOActions>
+  <IOAction path="App_Data\poststeps\Habitat_package.poststep" action="delete" />
+  <IOAction path="bin\xunit.core.dll" action="delete" />
+  <IOAction path="bin\xunit.assert.dll" action="delete" />
+  <IOAction path="bin\xunit.abstractions.dll" action="delete" />
+</IOActions>
+

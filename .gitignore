@@ -27,3 +27,8 @@ temp/
 .vscode
 nCrunchTemp*.*
 output/
+*.zip
+/temp_*
+/*.gen.json
+*.sccpl
+
