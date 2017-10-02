@@ -97,7 +97,7 @@
 
         private IQueryable<SearchResultItem> InitializeQuery(IQueryable<SearchResultItem> queryable)
         {
-            queryable = this.SetQueryRoots(queryable);
+            //queryable = this.SetQueryRoots(queryable);
             queryable = this.FilterOnLanguage(queryable);
             queryable = this.FilterOnVersion(queryable);
             if (this.Settings.MustHaveFormatter)
