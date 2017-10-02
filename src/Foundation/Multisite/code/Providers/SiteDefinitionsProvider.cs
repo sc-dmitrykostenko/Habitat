@@ -66,9 +66,9 @@
     {
       if (!string.IsNullOrEmpty(site.TargetHostName))
         return site.TargetHostName;
-      if (Uri.CheckHostName(site.HostName) != UriHostNameType.Unknown)
+      //if (Uri.CheckHostName(site.HostName) != UriHostNameType.Unknown)
         return site.HostName;
-      throw new ConfigurationErrorsException($"Cannot determine hostname for site '{site}'");
+      //throw new ConfigurationErrorsException($"Cannot determine hostname for site '{site}'");
     }
 
     private static bool IsSite([NotNull] Item item)
