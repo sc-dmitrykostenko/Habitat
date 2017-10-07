@@ -8,10 +8,12 @@ var util = require("gulp-util");
 var runSequence = require("run-sequence");
 var nugetRestore = require('gulp-nuget-restore');
 var fs = require('fs');
+var exec = require("child_process").exec;
 var yargs = require("yargs").argv;
 var unicorn = require("./scripts/unicorn.js");
 var habitat = require("./scripts/habitat.js");
 var helix = require("./scripts/helix.js");
+var azure = require("./scripts/azure.js");
 
 var config;
 if (fs.existsSync('./gulp-config.js.user')) {
@@ -468,3 +470,26 @@ gulp.task("Package-Generate", function (callback) {
         "Package-Clean",
         callback);
 });
+     
+gulp.task("Zip-Generate", function zipGenerate(callback) {
+  azure.zip(config.websiteRoot, ".\\Habitat.zip", config.solutionName + ".dev.local", callback);
+});
+
+gulp.task("Zip", function zip(callback) {
+  runSequence(
+    "Package-Generate", 
+    "Zip-Generate", 
+    callback);
+});
+
+gulp.task("WDP-Generate", function(callback) {
+  azure.wdp(".\\Habitat.zip", ".\\Habitat.scwdp.zip", callback);
+});
+
+gulp.task("WDP", function(callback) {
+  runSequence(
+    "Zip", 
+    "WDP-Generate",
+    callback);
+});
+
